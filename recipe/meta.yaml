@@ -9,6 +9,8 @@ source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
   sha256: b81d946738b43b80068f9e91e7874fc68dc12bb11239efa6c7045f6643b8ae7f
   folder: dials
+  patches:
+    - skip_model_background_test.diff
 
 build:
   number: 0
