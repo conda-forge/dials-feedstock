@@ -11,6 +11,7 @@ source:
   folder: dials
   patches:
     - skip_model_background_test.diff
+    - skip_ssx_reduction.diff
 
 build:
   number: 0
