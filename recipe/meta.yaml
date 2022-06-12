@@ -1,5 +1,5 @@
 {% set name = "dials" %}
-{% set version = "3.10.dev1" %}
+{% set version = "3.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,16 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 572b1ce7366f8bde14a4e6df9649e426b6dd23a4ee16d2ab3e35151300dd9551
+  sha256: b81d946738b43b80068f9e91e7874fc68dc12bb11239efa6c7045f6643b8ae7f
   folder: dials
   patches:
-    - 001_patch_coverage.patch
-    - 002_boost_no_static.patch
-    - 003_windows_xfail.patch
+    - skip_model_background_test.diff
+    - skip_ssx_reduction.diff
 
 build:
-  number: 4
-  osx_is_app: True
+  number: 0
+  skip: True  # [py<38]
+  osx_is_app: true
   entry_points:
     - cluster.dials.exec = dials.command_line.cluster_exec:run
     - dev.dials.csv = dials.command_line.rl_csv:run
@@ -117,7 +117,7 @@ requirements:
     - boost
     - boost-cpp
     - cctbx-base
-    - dxtbx
+    - dxtbx =3.10
     - msgpack-c
     - pip
     - python
@@ -165,7 +165,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: dials/LICENSE
-  summary: 'Diffraction Integration for Advanced Light Sources'
+  summary: Diffraction Integration for Advanced Light Sources
   description: |
     The DIALS project is a collaborative endeavour to develop new diffraction
     integration software to meet the data analysis requirements presented by recent

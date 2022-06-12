@@ -1,0 +1,15 @@
+diff --git a/tests/command_line/test_ssx_reduction.py b/tests/command_line/test_ssx_reduction.py
+index 6c8b6a71a..0c7d4c071 100644
+--- a/tests/command_line/test_ssx_reduction.py
++++ b/tests/command_line/test_ssx_reduction.py
+@@ -2,8 +2,10 @@
+ from __future__ import annotations
+ 
+ import procrunner
++import pytest
+ 
+ 
++@pytest.mark.xfail
+ def test_ssx_reduction(dials_data, tmp_path):
+     """
+     Check that dials.cosym, dials.scale, dials.export and dials.merge run
