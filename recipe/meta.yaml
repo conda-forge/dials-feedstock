@@ -114,8 +114,8 @@ requirements:
     - cmake
     - ninja
   host:
-    - boost
-    - boost-cpp
+    - boost <1.75
+    - boost-cpp <1.75
     - cctbx-base
     - dxtbx =3.11
     - msgpack-c
