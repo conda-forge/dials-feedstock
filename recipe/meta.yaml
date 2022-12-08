@@ -12,6 +12,7 @@ source:
   patches:
     - skip_model_background_test.diff
     - skip_ssx_reduction.diff
+    - patch_convert_to_cbf.diff  # [win]
 
 build:
   number: 0
