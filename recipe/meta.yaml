@@ -13,6 +13,7 @@ source:
     - skip_model_background_test.diff
     - skip_ssx_reduction.diff
     - patch_convert_to_cbf.diff  # [win]
+    - patch_test_symmetry.diff
 
 build:
   number: 0
