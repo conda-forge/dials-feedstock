@@ -1,5 +1,5 @@
 diff --git a/tests/command_line/test_symmetry.py b/tests/command_line/test_symmetry.py
-index d37257669..775d01752 100644
+index d37257669..3b45bc839 100644
 --- a/tests/command_line/test_symmetry.py
 +++ b/tests/command_line/test_symmetry.py
 @@ -2,6 +2,7 @@
@@ -10,18 +10,19 @@ index d37257669..775d01752 100644
  import subprocess
  
  import procrunner
-@@ -535,12 +536,14 @@ def test_x4wide(dials_data, tmp_path):
+@@ -535,13 +536,13 @@ def test_x4wide(dials_data, tmp_path):
      See also https://www.rcsb.org/structure/3QF8
      """
      x4wide = dials_data("x4wide_processed", pathlib=True)
-+    env = os.environ.copy()
-     result = subprocess.run(
+-    result = subprocess.run(
++    result = procrunner.run(
          [
              "dials.symmetry",
              x4wide / "AUTOMATIC_DEFAULT_scaled.expt",
              x4wide / "AUTOMATIC_DEFAULT_scaled.refl",
          ],
-+        env=env,
-         cwd=tmp_path,
+-        cwd=tmp_path,
++        working_directory=tmp_path,
      )
      assert not result.returncode and not result.stderr
+     assert tmp_path.joinpath("symmetrized.refl").is_file()
