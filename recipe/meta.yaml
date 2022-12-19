@@ -12,6 +12,7 @@ source:
   patches:
     - skip_model_background_test.diff
     - skip_ssx_reduction.diff
+    - patch_CMakeLists.txt
     - patch_convert_to_cbf.diff  # [win]
     - patch_test_symmetry.diff
     - patch_test_simple_integrate.diff
