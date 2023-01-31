@@ -13,12 +13,11 @@ source:
     - skip_model_background_test.diff
     - skip_ssx_reduction.diff
     - patch_convert_to_cbf.diff  # [win]
-    - patch_test_symmetry.diff
     - patch_test_simple_integrate.diff
 
 build:
   number: 0
-  skip: true  # [py<38]
+  skip: true
   osx_is_app: true
   entry_points:
     - cluster.dials.exec = dials.command_line.cluster_exec:run
