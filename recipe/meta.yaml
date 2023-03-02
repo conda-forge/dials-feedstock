@@ -11,9 +11,6 @@ source:
   folder: dials
   patches:
     - skip_model_background_test.diff
-    - skip_ssx_reduction.diff
-    - patch_convert_to_cbf.diff  # [win]
-    - patch_test_simple_integrate.diff
     - patch_test_ssx_integrate.diff
 
 build:
