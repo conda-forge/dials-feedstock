@@ -6,9 +6,18 @@ Subject: [PATCH] Pass fully-resolved path to `subprocess.run()`, part 2
 
 Fix another test file for Windows, following #2303
 ---
+ newsfragments/2356.misc           | 1 +
  tests/util/test_image_grouping.py | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+ create mode 100644 newsfragments/2356.misc
 
+diff --git a/newsfragments/2356.misc b/newsfragments/2356.misc
+new file mode 100644
+index 000000000..0900887dc
+--- /dev/null
++++ b/newsfragments/2356.misc
+@@ -0,0 +1 @@
++Fix more test failures on windows by passing a fully-qualified path for executable to ``subprocess.run()``, as resolving the path of the executable can be platform dependent.
 diff --git a/tests/util/test_image_grouping.py b/tests/util/test_image_grouping.py
 index 1d7576a14..a04e0df78 100644
 --- a/tests/util/test_image_grouping.py
