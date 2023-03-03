@@ -12,6 +12,7 @@ source:
   patches:
     - skip_model_background_test.diff
     - patch_test_ssx_integrate.diff
+    - 0001-Pass-fully-resolved-path-to-subprocess.run-part-2-23.patch
 
 build:
   number: 0

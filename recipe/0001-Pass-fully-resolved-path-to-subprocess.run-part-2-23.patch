@@ -1,0 +1,54 @@
+From 668beec80e027309364ab8e138c25155994b59ec Mon Sep 17 00:00:00 2001
+From: David Waterman <dagewa@users.noreply.github.com>
+Date: Fri, 3 Mar 2023 11:36:45 +0000
+Subject: [PATCH] Pass fully-resolved path to `subprocess.run()`, part 2
+ (#2356)
+
+Fix another test file for Windows, following #2303
+---
+ newsfragments/2356.misc           | 1 +
+ tests/util/test_image_grouping.py | 7 ++++---
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+ create mode 100644 newsfragments/2356.misc
+
+diff --git a/newsfragments/2356.misc b/newsfragments/2356.misc
+new file mode 100644
+index 000000000..0900887dc
+--- /dev/null
++++ b/newsfragments/2356.misc
+@@ -0,0 +1 @@
++Fix more test failures on windows by passing a fully-qualified path for executable to ``subprocess.run()``, as resolving the path of the executable can be platform dependent.
+diff --git a/tests/util/test_image_grouping.py b/tests/util/test_image_grouping.py
+index 1d7576a14..a04e0df78 100644
+--- a/tests/util/test_image_grouping.py
++++ b/tests/util/test_image_grouping.py
+@@ -1,6 +1,7 @@
+ from __future__ import annotations
+ 
+ import os
++import shutil
+ import subprocess
+ from pathlib import Path
+ from unittest import mock
+@@ -408,15 +409,15 @@ def test_real_cbf_example(tmp_path, dials_data):
+     parsed = ParsedYAML(tmp_path / "real_example.yaml")
+     handler = get_grouping_handler(parsed, "group_by")
+ 
+-    args = ["dials.import", f"template={fpath}"]
++    args = [shutil.which("dials.import"), f"template={fpath}"]
+     result = subprocess.run(args, cwd=tmp_path, capture_output=True)
+     assert not result.returncode and not result.stderr
+ 
+-    args = ["dials.find_spots", "imported.expt"]
++    args = [shutil.which("dials.find_spots"), "imported.expt"]
+     result = subprocess.run(args, cwd=tmp_path, capture_output=True)
+     assert not result.returncode and not result.stderr
+     args = [
+-        "dials.ssx_index",
++        shutil.which("dials.ssx_index"),
+         "imported.expt",
+         "strong.refl",
+         "unit_cell=96.4,96.4,96.4,90,90,90",
+-- 
+2.31.1
+
