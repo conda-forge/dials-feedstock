@@ -12,6 +12,7 @@ source:
   patches:
     - skip_model_background_test.diff
     - patch_test_ssx_integrate.diff
+    - 3fdbd2524c37eec4cdc73e9735b8f2a795d7238b.diff
 
 build:
   number: 0
