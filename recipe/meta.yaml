@@ -20,8 +20,8 @@ build:
     - cluster.dials.exec = dials.command_line.cluster_exec:run
     - dev.dials.csv = dials.command_line.rl_csv:run
     - dev.dials.show_extensions = dials.command_line.show_extensions:run
-    - dev.dials.ssx_index = dials.command_line.ssx_index:run
-    - dev.dials.ssx_integrate = dials.command_line.ssx_integrate:run
+    - dials.ssx_index = dials.command_line.ssx_index:run
+    - dials.ssx_integrate = dials.command_line.ssx_integrate:run
     - dials.align_crystal = dials.command_line.align_crystal:run
     - dials.anvil_correction = dials.command_line.anvil_correction:run
     - dials.apply_mask = dials.command_line.apply_mask:run
