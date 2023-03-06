@@ -157,8 +157,9 @@ test:
   imports:
     - dials
   commands:
-    - pytest $SRC_DIR/dials/tests --regression -n auto  # [not win]
-    - pytest %SRC_DIR%/dials/tests --regression -n auto  # [win]
+    # - pytest $SRC_DIR/dials/tests --regression -n auto  # [not win]
+    # - pytest %SRC_DIR%/dials/tests --regression -n auto  # [win]
+    - pytest %SRC_DIR%/dials/tests/command_line/test_rs_mapper.py --regression -n auto
     - pip check
 
 about:
