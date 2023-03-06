@@ -158,6 +158,7 @@ test:
   imports:
     - dials
   commands:
+    - dials.data get image_examples --verify
     - pytest $SRC_DIR/dials/tests --regression -n auto  # [not win]
     - pytest %SRC_DIR%/dials/tests --regression -n auto  # [win]
     - pip check
