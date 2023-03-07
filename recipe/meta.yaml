@@ -1,5 +1,5 @@
 {% set name = "dials" %}
-{% set version = "3.11.2" %}
+{% set version = "3.13.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,25 +7,24 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 3a3bb75fb82e175cd6ace8f5b2be0cee2f70d79d272ffb34420165f8b798daa1
+  sha256: 67d8c43a60221cfecc44840a39a62a35a00053c88733f551bc63b904a5607ccc
   folder: dials
   patches:
     - skip_model_background_test.diff
-    - skip_ssx_reduction.diff
-    - patch_convert_to_cbf.diff  # [win]
-    - patch_test_symmetry.diff
-    - patch_test_simple_integrate.diff
+    - patch_test_ssx_integrate.diff
+    - 3fdbd2524c37eec4cdc73e9735b8f2a795d7238b.diff
+    - patch_test_rs_mapper.diff
 
 build:
   number: 0
-  skip: true  # [py<38]
   osx_is_app: true
   entry_points:
     - cluster.dials.exec = dials.command_line.cluster_exec:run
     - dev.dials.csv = dials.command_line.rl_csv:run
     - dev.dials.show_extensions = dials.command_line.show_extensions:run
-    - dev.dials.ssx_index = dials.command_line.ssx_index:run
-    - dev.dials.ssx_integrate = dials.command_line.ssx_integrate:run
+    - dev.dials.simple_integrate = dials.command_line.simple_integrate:run
+    - dials.ssx_index = dials.command_line.ssx_index:run
+    - dials.ssx_integrate = dials.command_line.ssx_integrate:run
     - dials.align_crystal = dials.command_line.align_crystal:run
     - dials.anvil_correction = dials.command_line.anvil_correction:run
     - dials.apply_mask = dials.command_line.apply_mask:run
@@ -117,10 +116,10 @@ requirements:
     - cmake
     - ninja
   host:
-    - boost <1.75
-    - boost-cpp <1.75
+    - boost
+    - boost-cpp
     - cctbx-base
-    - dxtbx =3.11
+    - dxtbx =3.13
     - msgpack-c
     - pip
     - python
@@ -159,6 +158,7 @@ test:
   imports:
     - dials
   commands:
+    - dials.data get image_examples --verify
     - pytest $SRC_DIR/dials/tests --regression -n auto  # [not win]
     - pytest %SRC_DIR%/dials/tests --regression -n auto  # [win]
     - pip check
