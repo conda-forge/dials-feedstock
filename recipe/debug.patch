@@ -1,0 +1,42 @@
+diff --git a/tests/util/test_image_grouping.py b/tests/util/test_image_grouping.py
+index 7b845e09a..c1661ebb4 100644
+--- a/tests/util/test_image_grouping.py
++++ b/tests/util/test_image_grouping.py
+@@ -440,17 +440,18 @@ def test_real_cbf_example(tmp_path, dials_data):
+     # only images 17001, 17002, 17003, 17004 get indexed, so expect these to be split into groups [1,0,1,0]
+     fps = [FilePair(Path(tmp_path / "indexed.expt"), Path(tmp_path / "indexed.refl"))]
+     fd = handler.split_files_to_groups(tmp_path, fps)
++    print(f"{fd=}")
+ 
+     # with max lattices=2, 17001 has two lattices, 17002,17003,17004 have one
+     assert list(fd.keys()) == ["group_1", "group_2"]
+     filelist_1 = fd["group_1"]
+-    assert len(filelist_1) == 1
++    assert len(filelist_1) == 1, filelist_1
+     expts1 = load.experiment_list(filelist_1[0].expt)
+     assert len(expts1) == 2
+     assert expts1[0].imageset.get_path(0).split("_")[-1] == "17002.cbf"
+     assert expts1[1].imageset.get_path(0).split("_")[-1] == "17004.cbf"
+     filelist_2 = fd["group_2"]
+-    assert len(filelist_2) == 1
++    assert len(filelist_2) == 1, filelist_2
+     expts2 = load.experiment_list(filelist_2[0].expt)
+     assert len(expts2) == 3
+     assert expts2[0].imageset.get_path(0).split("_")[-1] == "17001.cbf"
+@@ -463,14 +464,14 @@ def test_real_cbf_example(tmp_path, dials_data):
+     fd = handler.split_files_to_groups(tmp_path, fps)
+     assert list(fd.keys()) == ["group_1", "group_2"]
+     filelist_1 = fd["group_1"]
+-    assert len(filelist_1) == 1
++    assert len(filelist_1) == 1, filelist_1
+     expts1 = load.experiment_list(filelist_1[0].expt)
+     assert len(expts1) == 3
+     assert expts1[0].scan.get_image_range()[0] == 17000
+     assert expts1[1].scan.get_image_range()[0] == 17002
+     assert expts1[2].scan.get_image_range()[0] == 17004
+     filelist_2 = fd["group_2"]
+-    assert len(filelist_2) == 1
++    assert len(filelist_2) == 1, filelist_2
+     expts2 = load.experiment_list(filelist_2[0].expt)
+     assert len(expts2) == 2
+     assert expts2[0].scan.get_image_range()[0] == 17001
