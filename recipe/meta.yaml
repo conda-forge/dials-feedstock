@@ -118,7 +118,7 @@ requirements:
     - boost
     - boost-cpp
     - cctbx-base
-    - dxtbx =3.13
+    - dxtbx =3.14
     - msgpack-c
     - pip
     - python
