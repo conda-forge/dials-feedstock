@@ -1,0 +1,12 @@
+diff --git a/tests/util/test_image_grouping.py b/tests/util/test_image_grouping.py
+index 7b845e09a..5ed2f505d 100644
+--- a/tests/util/test_image_grouping.py
++++ b/tests/util/test_image_grouping.py
+@@ -382,6 +382,7 @@ def test_real_h5_example(tmp_path, dials_data):
+     assert indices2 == expected_group2_file1
+ 
+ 
++@pytest.mark.xfel
+ @pytest.mark.xfail(
+     os.name == "nt",
+     reason="Failures due to translated paths; see https://github.com/cctbx/dxtbx/issues/613",

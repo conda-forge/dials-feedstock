@@ -13,7 +13,7 @@ source:
     - skip_model_background_test.diff
     - patch_test_ssx_integrate.diff
     - patch_test_rs_mapper.diff
-    - debug.patch
+    - test_image_grouping-test_real_cbf_example-xfail.diff
 
 build:
   number: 0
@@ -159,8 +159,8 @@ test:
     - dials
   commands:
     - dials.data get image_examples --verify
-    - pytest $SRC_DIR/dials/tests/util/test_image_grouping.py::test_real_cbf_example --regression -vs  # [not win]
-    - pytest %SRC_DIR%/dials/tests/util/test_image_grouping.py::test_real_cbf_example --regression -vs  # [win]
+    - pytest $SRC_DIR/dials/tests --regression -n auto  # [not win]
+    - pytest %SRC_DIR%/dials/tests --regression -n auto  # [win]
     - pip check
 
 about:
