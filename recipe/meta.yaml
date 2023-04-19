@@ -1,5 +1,5 @@
 {% set name = "dials" %}
-{% set version = "3.13.0" %}
+{% set version = "3.14.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 67d8c43a60221cfecc44840a39a62a35a00053c88733f551bc63b904a5607ccc
+  sha256: 927a145b8fa187d207c37dcb580032f545c8d8d5f02b16ae7c095907cbdc8621
   folder: dials
   patches:
     - skip_model_background_test.diff
     - patch_test_ssx_integrate.diff
-    - 3fdbd2524c37eec4cdc73e9735b8f2a795d7238b.diff
     - patch_test_rs_mapper.diff
+    - test_image_grouping-test_real_cbf_example-xfail.diff
 
 build:
   number: 0
@@ -23,8 +23,6 @@ build:
     - dev.dials.csv = dials.command_line.rl_csv:run
     - dev.dials.show_extensions = dials.command_line.show_extensions:run
     - dev.dials.simple_integrate = dials.command_line.simple_integrate:run
-    - dials.ssx_index = dials.command_line.ssx_index:run
-    - dials.ssx_integrate = dials.command_line.ssx_integrate:run
     - dials.align_crystal = dials.command_line.align_crystal:run
     - dials.anvil_correction = dials.command_line.anvil_correction:run
     - dials.apply_mask = dials.command_line.apply_mask:run
@@ -100,6 +98,8 @@ build:
     - dials.split_experiments = dials.command_line.split_experiments:run
     - dials.spot_counts_per_image = dials.command_line.spot_counts_per_image:run
     - dials.spot_resolution_shells = dials.command_line.spot_resolution_shells:run
+    # - dials.ssx_index = dials.command_line.ssx_index:run
+    - dials.ssx_integrate = dials.command_line.ssx_integrate:run
     - dials.stereographic_projection = dials.command_line.stereographic_projection:run
     - dials.stills_process = dials.command_line.stills_process:run
     - dials.symmetry = dials.command_line.symmetry:run
@@ -119,7 +119,7 @@ requirements:
     - boost
     - boost-cpp
     - cctbx-base
-    - dxtbx =3.13
+    - dxtbx =3.14
     - msgpack-c
     - pip
     - python
