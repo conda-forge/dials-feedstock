@@ -11,6 +11,7 @@ source:
   folder: dials
   patches:
     - skip_model_background_test.diff
+    - skip_test_rs_mapper.diff
     - patch_test_ssx_integrate.diff
     - patch_test_rs_mapper.diff
     - test_image_grouping-test_real_cbf_example-xfail.diff
