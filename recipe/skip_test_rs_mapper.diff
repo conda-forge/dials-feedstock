@@ -1,5 +1,5 @@
 diff --git a/tests/command_line/test_rs_mapper.py b/tests/command_line/test_rs_mapper.py
-index 78be7364f..b557fb332 100644
+index 78be7364f..227a0c621 100644
 --- a/tests/command_line/test_rs_mapper.py
 +++ b/tests/command_line/test_rs_mapper.py
 @@ -1,5 +1,6 @@
@@ -18,4 +18,14 @@ index 78be7364f..b557fb332 100644
 +    reason="does not run on windows")
  def test_rs_mapper(dials_data, tmp_path):
      result = procrunner.run(
+         [
+@@ -67,6 +71,9 @@ def test_multi_panel(dials_regression, tmp_path):
+     assert flex.mean(m.data) == pytest.approx(0.05911629647016525, abs=1e-6)
+ 
+ 
++@pytest.mark.skipif(
++    os.name == "nt",
++    reason="does not run on windows")
+ def test_masked(dials_data, tmp_path):
+     procrunner.run(
          [
