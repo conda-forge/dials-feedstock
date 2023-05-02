@@ -15,6 +15,7 @@ source:
     - patch_test_ssx_integrate.diff
     - patch_test_rs_mapper.diff
     - test_image_grouping-test_real_cbf_example-xfail.diff
+    - patch_msgpack_cxx.diff
 
 build:
   number: 0
