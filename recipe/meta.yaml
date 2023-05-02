@@ -122,7 +122,7 @@ requirements:
     - boost-cpp
     - cctbx-base
     - dxtbx =3.14
-    - msgpack-c
+    - msgpack-cxx
     - pip
     - python
   run:
