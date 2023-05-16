@@ -1,5 +1,5 @@
 {% set name = "dials" %}
-{% set version = "3.14.1" %}
+{% set version = "3.14.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 3679b548e0e12fd1ee211ce907863f6c4acb6359e1b3016d4af193c8db3f16ca
+  sha256: d636f68c09d8a29271c1f65b6c3640d36caaf6090ad7991e59f5b89fbe82b236
   folder: dials
   patches:
     - skip_model_background_test.diff
@@ -18,7 +18,7 @@ source:
     - patch_msgpack_cxx.diff
 
 build:
-  number: 1
+  number: 0
   osx_is_app: true
   entry_points:
     - cluster.dials.exec = dials.command_line.cluster_exec:run
