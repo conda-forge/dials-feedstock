@@ -10,7 +10,7 @@ source:
   sha256: d636f68c09d8a29271c1f65b6c3640d36caaf6090ad7991e59f5b89fbe82b236
   folder: dials
   patches:
-    - patch_integrator_executor_getstate_manages_dict.diff  # [win and py311]
+    - patch_integrator_executor_getstate_manages_dict.diff  # [win and py==311]
     - skip_model_background_test.diff
     - skip_test_rs_mapper.diff
     - patch_test_ssx_integrate.diff
