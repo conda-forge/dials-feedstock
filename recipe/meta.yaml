@@ -10,13 +10,9 @@ source:
   sha256: b6655649d61e28c092582f8a85f8f0b48913f73f63b1315c1134a9a7ad271b4e
   folder: dials
   patches:
-    - patch_integrator_executor_getstate_manages_dict.diff  # [win and py==311]
     - skip_model_background_test.diff
     - skip_test_rs_mapper.diff
-    - patch_test_ssx_integrate.diff
     - patch_test_rs_mapper.diff
-    - test_image_grouping-test_real_cbf_example-xfail.diff
-    - patch_msgpack_cxx.diff
 
 build:
   number: 0
