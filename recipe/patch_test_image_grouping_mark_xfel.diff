@@ -1,22 +1,3 @@
-From 71ff54ef8998e9e294f25b11d6abdb9fba46a82d Mon Sep 17 00:00:00 2001
-From: Richard Gildea <richard.gildea@diamond.ac.uk>
-Date: Thu, 15 Jun 2023 09:50:18 +0100
-Subject: [PATCH] Mark xfel dependency on image grouping test
-
-See dials#2389 and dials#2404
----
- newsfragments/XXX.misc            | 1 +
- tests/util/test_image_grouping.py | 1 +
- 2 files changed, 2 insertions(+)
- create mode 100644 newsfragments/XXX.misc
-
-diff --git a/newsfragments/XXX.misc b/newsfragments/XXX.misc
-new file mode 100644
-index 0000000000..efab960de8
---- /dev/null
-+++ b/newsfragments/XXX.misc
-@@ -0,0 +1 @@
-+Mark xfel dependency on image grouping test.
 diff --git a/tests/util/test_image_grouping.py b/tests/util/test_image_grouping.py
 index 5838d609dc..cc319ca59d 100644
 --- a/tests/util/test_image_grouping.py
