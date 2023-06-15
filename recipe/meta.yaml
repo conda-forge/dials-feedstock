@@ -1,5 +1,5 @@
 {% set name = "dials" %}
-{% set version = "3.14.2" %}
+{% set version = "3.15.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,19 +7,17 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: d636f68c09d8a29271c1f65b6c3640d36caaf6090ad7991e59f5b89fbe82b236
+  sha256: b6655649d61e28c092582f8a85f8f0b48913f73f63b1315c1134a9a7ad271b4e
   folder: dials
   patches:
-    - patch_integrator_executor_getstate_manages_dict.diff  # [win and py==311]
     - skip_model_background_test.diff
     - skip_test_rs_mapper.diff
-    - patch_test_ssx_integrate.diff
     - patch_test_rs_mapper.diff
-    - test_image_grouping-test_real_cbf_example-xfail.diff
-    - patch_msgpack_cxx.diff
+    - patch_test_import_template_windows.diff
+    - patch_test_image_grouping_mark_xfel.diff
 
 build:
-  number: 1
+  number: 0
   osx_is_app: true
   entry_points:
     - cluster.dials.exec = dials.command_line.cluster_exec:run
@@ -122,7 +120,7 @@ requirements:
     - boost
     - boost-cpp
     - cctbx-base
-    - dxtbx =3.14
+    - dxtbx =3.15
     - msgpack-cxx
     - pip
     - python
