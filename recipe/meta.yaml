@@ -13,7 +13,7 @@ source:
     - skip_model_background_test.diff
     - skip_test_rs_mapper.diff
     - patch_test_rs_mapper.diff
-    - recipe/patch_test_import_template_windows.diff
+    - patch_test_import_template_windows.diff
 
 build:
   number: 0
