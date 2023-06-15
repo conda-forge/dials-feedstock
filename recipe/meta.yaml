@@ -14,6 +14,7 @@ source:
     - skip_test_rs_mapper.diff
     - patch_test_rs_mapper.diff
     - patch_test_import_template_windows.diff
+    - patch_test_image_grouping_mark_xfel.diff
 
 build:
   number: 0
