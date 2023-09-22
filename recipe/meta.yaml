@@ -17,7 +17,7 @@ source:
     - patch_test_image_grouping_mark_xfel.diff
 
 build:
-  number: 0
+  number: 1
   osx_is_app: true
   entry_points:
     - cluster.dials.exec = dials.command_line.cluster_exec:run
@@ -127,7 +127,7 @@ requirements:
   run:
     - {{ pin_compatible('boost') }}
     - {{ pin_compatible('cctbx-base') }}
-    - {{ pin_compatible('dxtbx') }}
+    - {{ pin_compatible('dxtbx', lower_bound='3.15', upper_bound='3.16') }}
     - boost-cpp
     - gemmi
     - h5py
