@@ -1,5 +1,5 @@
 {% set name = "dials" %}
-{% set version = "3.15.1" %}
+{% set version = "3.17.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 51844b3def10ae9e7d7d5deef1eff9767b364649e4e3a94a283ce7bfb9cea800
+  sha256: 05c942f1e5480df2640fd4b097f472efbf60fa93be4caf5b35ca4a34cc93db55
   folder: dials
   patches:
     - skip_model_background_test.diff
@@ -17,7 +17,7 @@ source:
     - patch_test_image_grouping_mark_xfel.diff
 
 build:
-  number: 1
+  number: 0
   osx_is_app: true
   entry_points:
     - cluster.dials.exec = dials.command_line.cluster_exec:run
