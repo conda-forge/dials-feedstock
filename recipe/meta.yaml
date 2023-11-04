@@ -116,18 +116,16 @@ requirements:
     - cmake
     - ninja
   host:
-    - boost
-    - boost-cpp
+    - libboost-devel
+    - libboost-python-devel
     - cctbx-base
     - dxtbx ={{ version_xy }}
     - msgpack-cxx
     - pip
     - python
   run:
-    - {{ pin_compatible('boost') }}
     - {{ pin_compatible('cctbx-base') }}
     - {{ pin_compatible('dxtbx', max_pin='x.x', lower_bound=version_xy) }}
-    - boost-cpp
     - gemmi
     - h5py
     - jinja2
