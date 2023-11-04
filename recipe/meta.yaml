@@ -10,18 +10,15 @@ source:
   sha256: 05c942f1e5480df2640fd4b097f472efbf60fa93be4caf5b35ca4a34cc93db55
   folder: dials
   patches:
-    - skip_model_background_test.diff
     - skip_test_rs_mapper.diff
     - patch_test_rs_mapper.diff
-    - patch_test_import_template_windows.diff
-    - patch_test_image_grouping_mark_xfel.diff
 
 build:
   number: 0
   osx_is_app: true
   entry_points:
     - cluster.dials.exec = dials.command_line.cluster_exec:run
-    - dev.dials.csv = dials.command_line.rl_csv:run
+    - dev.dials.napari_rlv = dials.command_line.napari_rlv:run
     - dev.dials.show_extensions = dials.command_line.show_extensions:run
     - dev.dials.simple_integrate = dials.command_line.simple_integrate:run
     - dials.align_crystal = dials.command_line.align_crystal:run
@@ -50,7 +47,6 @@ build:
     - dials.find_bad_pixels = dials.command_line.find_bad_pixels:run
     - dials.find_hot_pixels = dials.command_line.find_hot_pixels:run
     - dials.find_rotation_axis = dials.command_line.find_rotation_axis:run
-    - dials.find_shared_models = dials.command_line.find_shared_models:run
     - dials.find_spots = dials.command_line.find_spots:run
     - dials.find_spots_client = dials.command_line.find_spots_client:run
     - dials.find_spots_server = dials.command_line.find_spots_server:run
@@ -99,7 +95,7 @@ build:
     - dials.split_experiments = dials.command_line.split_experiments:run
     - dials.spot_counts_per_image = dials.command_line.spot_counts_per_image:run
     - dials.spot_resolution_shells = dials.command_line.spot_resolution_shells:run
-    # - dials.ssx_index = dials.command_line.ssx_index:run
+    - dials.ssx_index = dials.command_line.ssx_index:run
     - dials.ssx_integrate = dials.command_line.ssx_integrate:run
     - dials.stereographic_projection = dials.command_line.stereographic_projection:run
     - dials.stills_process = dials.command_line.stills_process:run
