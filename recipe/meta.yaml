@@ -116,10 +116,10 @@ requirements:
     - cmake
     - ninja
   host:
-    - libboost-devel
-    - libboost-python-devel
     - cctbx-base
     - dxtbx ={{ version_xy }}
+    - libboost-devel
+    - libboost-python-devel
     - msgpack-cxx
     - pip
     - python
