@@ -16,6 +16,7 @@ source:
 
 build:
   number: 0
+  skip: true  # [py<39]
   osx_is_app: true
   entry_points:
     - cluster.dials.exec = dials.command_line.cluster_exec:run
