@@ -10,6 +10,7 @@ source:
   sha256: 05c942f1e5480df2640fd4b097f472efbf60fa93be4caf5b35ca4a34cc93db55
   folder: dials
   patches:
+    - skip_model_background_test.diff
     - skip_test_rs_mapper.diff
     - patch_test_rs_mapper.diff
 
