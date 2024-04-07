@@ -15,7 +15,7 @@ source:
     - patch_test_rs_mapper.diff
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<39]
   osx_is_app: true
   entry_points:
@@ -115,6 +115,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cmake
     - ninja
   host:
