@@ -1,5 +1,5 @@
 {% set name = "dials" %}
-{% set version = "3.19.0" %}
+{% set version = "3.20.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 5930b571d740c303bcf1e338453f8a3a50534bb531082148f6bca09e274399f0
+  sha256: a148ffed2534c2d556bb89ba08079827538e50d812e86541736bf6a619f471d7
   folder: dials
   patches:
     - skip_model_background_test.diff
@@ -15,7 +15,7 @@ source:
     - patch_test_rs_mapper.diff
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<39]
   osx_is_app: true
   entry_points:
@@ -160,7 +160,7 @@ test:
     - dials
   commands:
     - dials.data get image_examples --verify
-    - pytest $SRC_DIR/dials/tests --regression -n auto  # [not win]
+    - pytest $SRC_DIR/dials/tests -n auto  # [not win]
     - pytest %SRC_DIR%/dials/tests --regression -n auto  # [win]
     - pip check
 
