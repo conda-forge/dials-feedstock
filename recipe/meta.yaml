@@ -138,6 +138,7 @@ requirements:
     - pandas
     - procrunner
     - pycbf
+    - pyopengl
     - python
     - scikit-learn
     - scipy
