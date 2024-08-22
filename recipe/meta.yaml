@@ -1,5 +1,5 @@
 {% set name = "dials" %}
-{% set version = "3.20.0" %}
+{% set version = "3.21.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: a148ffed2534c2d556bb89ba08079827538e50d812e86541736bf6a619f471d7
+  sha256: 63e2c028677d562bb5f9ccc72f900f2681daaedb1df69552ab8d989ada47ed4b
   folder: dials
   patches:
     - skip_model_background_test.diff
@@ -138,6 +138,7 @@ requirements:
     - pandas
     - procrunner
     - pycbf
+    - pyopengl
     - python
     - scikit-learn
     - scipy
