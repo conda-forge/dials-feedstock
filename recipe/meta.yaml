@@ -1,5 +1,5 @@
 {% set name = "dials" %}
-{% set version = "3.21.0" %}
+{% set version = "3.22.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 63e2c028677d562bb5f9ccc72f900f2681daaedb1df69552ab8d989ada47ed4b
+  sha256: 1fe241e7513ff7002cbc0d136b2d90e455fcfcaac4ef01d80df56fc2c3118055
   folder: dials
   patches:
     - skip_model_background_test.diff
@@ -36,6 +36,7 @@ build:
     - dials.complete_full_sphere = dials.command_line.complete_full_sphere:run
     - dials.compute_delta_cchalf = dials.command_line.compute_delta_cchalf:run
     - dials.convert_to_cbf = dials.command_line.convert_to_cbf:run
+    - dials.correlation_matrix = dials.command_line.correlation_matrix:run
     - dials.cosym = dials.command_line.cosym:run
     - dials.create_profile_model = dials.command_line.create_profile_model:run
     - dials.damage_analysis = dials.command_line.damage_analysis:run
@@ -95,6 +96,7 @@ build:
     - dials.slice_sequence = dials.command_line.slice_sequence:run
     - dials.sort_reflections = dials.command_line.sort_reflections:run
     - dials.split_experiments = dials.command_line.split_experiments:run
+    - dials.split_still_data = dials.command_line.split_still_data:run
     - dials.spot_counts_per_image = dials.command_line.spot_counts_per_image:run
     - dials.spot_resolution_shells = dials.command_line.spot_resolution_shells:run
     - dials.ssx_index = dials.command_line.ssx_index:run
