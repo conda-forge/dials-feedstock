@@ -36,6 +36,7 @@ build:
     - dials.complete_full_sphere = dials.command_line.complete_full_sphere:run
     - dials.compute_delta_cchalf = dials.command_line.compute_delta_cchalf:run
     - dials.convert_to_cbf = dials.command_line.convert_to_cbf:run
+    - dials.correlation_matrix = dials.command_line.correlation_matrix:run
     - dials.cosym = dials.command_line.cosym:run
     - dials.create_profile_model = dials.command_line.create_profile_model:run
     - dials.damage_analysis = dials.command_line.damage_analysis:run
@@ -95,6 +96,7 @@ build:
     - dials.slice_sequence = dials.command_line.slice_sequence:run
     - dials.sort_reflections = dials.command_line.sort_reflections:run
     - dials.split_experiments = dials.command_line.split_experiments:run
+    - dials.split_still_data = dials.command_line.split_still_data:run
     - dials.spot_counts_per_image = dials.command_line.spot_counts_per_image:run
     - dials.spot_resolution_shells = dials.command_line.spot_resolution_shells:run
     - dials.ssx_index = dials.command_line.ssx_index:run
