@@ -15,7 +15,7 @@ source:
     - patch_test_rs_mapper.diff
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<39]
   osx_is_app: true
   entry_points:
