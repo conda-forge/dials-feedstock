@@ -128,6 +128,7 @@ requirements:
     - msgpack-cxx
     - pip
     - python
+    - setuptools
   run:
     - {{ pin_compatible('cctbx-base') }}
     - {{ pin_compatible('dxtbx', max_pin='x.x', lower_bound=version_xy) }}
