@@ -10,9 +10,9 @@ source:
   sha256: 589d4d8af7cefc90b41606523d8112e164081b5a2458d3cad08f7929ec112523
   folder: dials
   patches:
-    - skip_model_background_test.diff
-    - skip_test_rs_mapper.diff
-    - patch_test_rs_mapper.diff
+    - 0001-Skip-model_background-test.patch
+    - 0002-Skip-rs_mapper-tests-on-windows.patch
+    - 0003-Force-rs_mapper-tests-to-be-single-threaded.patch
 
 build:
   number: 0

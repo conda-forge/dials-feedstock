@@ -1,0 +1,39 @@
+From 1182e18308d1525b18e9ad926c092152429e7e63 Mon Sep 17 00:00:00 2001
+From: Nicholas Devenish <ndevenish@gmail.com>
+Date: Fri, 17 Jan 2025 08:46:41 +0000
+Subject: [PATCH 2/3] Skip rs_mapper tests on windows
+
+---
+ tests/command_line/test_rs_mapper.py | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/tests/command_line/test_rs_mapper.py b/tests/command_line/test_rs_mapper.py
+index f732577e9..5fa854781 100644
+--- a/tests/command_line/test_rs_mapper.py
++++ b/tests/command_line/test_rs_mapper.py
+@@ -1,5 +1,6 @@
+ from __future__ import annotations
+ 
++import os
+ import shutil
+ import subprocess
+ 
+@@ -9,6 +10,7 @@
+ from scitbx.array_family import flex
+ 
+ 
++@pytest.mark.skipif(os.name == "nt", reason="does not run on windows")
+ def test_rs_mapper(dials_data, tmp_path):
+     result = subprocess.run(
+         [
+@@ -65,6 +67,7 @@ def test_multi_panel(dials_data, tmp_path):
+     assert flex.mean(m.data) == pytest.approx(0.05911629647016525, abs=1e-6)
+ 
+ 
++@pytest.mark.skipif(os.name == "nt", reason="does not run on windows")
+ def test_masked(dials_data, tmp_path):
+     subprocess.run(
+         [
+-- 
+2.47.0
+

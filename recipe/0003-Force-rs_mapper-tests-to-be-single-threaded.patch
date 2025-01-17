@@ -1,0 +1,54 @@
+From e6dbe09a62d6241160d346e4e529357b4ffe9270 Mon Sep 17 00:00:00 2001
+From: Nicholas Devenish <ndevenish@gmail.com>
+Date: Fri, 17 Jan 2025 08:47:30 +0000
+Subject: [PATCH 3/3] Force rs_mapper tests to be single-threaded
+
+---
+ tests/command_line/test_rs_mapper.py | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/tests/command_line/test_rs_mapper.py b/tests/command_line/test_rs_mapper.py
+index 5fa854781..0613ca24a 100644
+--- a/tests/command_line/test_rs_mapper.py
++++ b/tests/command_line/test_rs_mapper.py
+@@ -15,6 +15,7 @@ def test_rs_mapper(dials_data, tmp_path):
+     result = subprocess.run(
+         [
+             shutil.which("dials.rs_mapper"),
++            "nproc=1",
+             dials_data("centroid_test_data", pathlib=True)
+             / "imported_experiments.json",
+             'map_file="junk.ccp4"',
+@@ -45,6 +46,7 @@ def test_multi_panel(dials_data, tmp_path):
+     result = subprocess.run(
+         [
+             shutil.which("dials.rs_mapper"),
++            "nproc=1",
+             image,
+             'map_file="junk.ccp4"',
+         ],
+@@ -78,7 +80,12 @@ def test_masked(dials_data, tmp_path):
+         capture_output=True,
+     )
+     result = subprocess.run(
+-        [shutil.which("dials.rs_mapper"), "imported.expt", "map_file=masked.ccp4"],
++        [
++            shutil.which("dials.rs_mapper"),
++            "nproc=1",
++            "imported.expt",
++            "map_file=masked.ccp4",
++        ],
+         cwd=tmp_path,
+         capture_output=True,
+     )
+@@ -89,6 +96,7 @@ def test_masked(dials_data, tmp_path):
+     result = subprocess.run(
+         [
+             shutil.which("dials.rs_mapper"),
++            "nproc=1",
+             "imported.expt",
+             "map_file=unmasked.ccp4",
+             "ignore_mask=True",
+-- 
+2.47.0
+
