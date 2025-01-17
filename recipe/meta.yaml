@@ -16,7 +16,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<39]
+  skip: true  # [py<310]
   osx_is_app: true
   entry_points:
     - cluster.dials.exec = dials.command_line.cluster_exec:run
@@ -132,7 +132,8 @@ requirements:
   run:
     - {{ pin_compatible('cctbx-base') }}
     - {{ pin_compatible('dxtbx', max_pin='x.x', lower_bound=version_xy) }}
-    - gemmi
+    - ffbidx
+    - gemmi >=0.7
     - h5py
     - jinja2
     - matplotlib-base
@@ -147,7 +148,7 @@ requirements:
     - scipy
     - tabulate
     - tqdm
-    - wxpython
+    - wxpython >=4.2.2
 
 test:
   source_files:
