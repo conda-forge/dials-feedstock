@@ -138,7 +138,7 @@ requirements:
     - jinja2
     - matplotlib-base
     - numpy
-    - orderedset
+    - ordered-set
     - pandas
     - procrunner
     - pycbf
