@@ -15,7 +15,7 @@ source:
     - 0003-Force-rs_mapper-tests-to-be-single-threaded.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<310]
   osx_is_app: true
   entry_points:
