@@ -139,6 +139,7 @@ requirements:
     - jinja2
     - matplotlib-base
     - numpy
+    - optuna
     - ordered-set
     - pandas
     - procrunner
