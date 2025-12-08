@@ -123,6 +123,7 @@ requirements:
   host:
     - cctbx-base
     - dxtbx ={{ version_xy }}
+    - eigen
     - libboost-devel
     - libboost-python-devel
     - msgpack-cxx
