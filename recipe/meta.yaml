@@ -141,7 +141,7 @@ requirements:
     - numpy
     - optuna
     - ordered-set
-    - pandas
+    - pandas <3
     - procrunner
     - pycbf
     - pyopengl
