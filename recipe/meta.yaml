@@ -1,5 +1,5 @@
 {% set name = "dials" %}
-{% set version = "3.26.0" %}
+{% set version = "3.27.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: d38d4194b7e23278fbee41da86c59efb109322cbd9ba13068accd531ed4fe319
+  sha256: 785f7aa5a42eb012da12cce16092ef14f3c8a2158ea0de2cefd937b5200d47a0
   folder: dials
   patches:
     - 0001-Skip-model_background-test.patch
