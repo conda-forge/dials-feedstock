@@ -1,7 +1,7 @@
 From 9afb485a4a733303d66caea867388844551035ce Mon Sep 17 00:00:00 2001
 From: Nicholas Devenish <ndevenish@gmail.com>
 Date: Fri, 17 Jan 2025 08:46:41 +0000
-Subject: [PATCH 2/3] Skip rs_mapper tests on windows
+Subject: [PATCH 2/4] Skip rs_mapper tests on windows
 
 ---
  tests/command_line/test_rs_mapper.py | 3 +++

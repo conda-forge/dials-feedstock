@@ -1,0 +1,40 @@
+From bba1d829b90536fd4c70c9eb5226966310b1b3ef Mon Sep 17 00:00:00 2001
+From: James Beilsten-Edmands
+ <30625594+jbeilstenedmands@users.noreply.github.com>
+Date: Mon, 12 Jan 2026 14:18:29 +0000
+Subject: [PATCH 4/4] Numpy fix: return scalar in ellipsoid refiner mse function
+ (#3077)
+
+Fix for numpy update
+---
+ newsfragments/3077.misc                                 | 1 +
+ src/dials/algorithms/profile_model/ellipsoid/refiner.py | 5 +++--
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+ create mode 100644 newsfragments/3077.misc
+
+diff --git a/newsfragments/3077.misc b/newsfragments/3077.misc
+new file mode 100644
+index 00000000000..fb7cce46f56
+--- /dev/null
++++ b/newsfragments/3077.misc
+@@ -0,0 +1 @@
++Update to handle numpy changes
+diff --git a/src/dials/algorithms/profile_model/ellipsoid/refiner.py b/src/dials/algorithms/profile_model/ellipsoid/refiner.py
+index 7f57bf69966..1fda100e284 100644
+--- a/src/dials/algorithms/profile_model/ellipsoid/refiner.py
++++ b/src/dials/algorithms/profile_model/ellipsoid/refiner.py
+@@ -427,11 +427,12 @@ def mse(self):
+         The MSE in local reflection coordinates
+ 
+         """
+-        mse = 0
++        mse = 0.0
+         for i in range(len(self.data)):
+             mbar = self.data[i].conditional.mean()
+             xobs = self.data[i].mobs
+-            mse += np.dot((xobs - mbar).T, xobs - mbar)
++            diff = xobs - mbar
++            mse += np.linalg.norm(diff) ** 2
+         mse /= len(self.data)
+         return mse
+ 

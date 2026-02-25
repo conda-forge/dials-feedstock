@@ -1,7 +1,7 @@
 From c278de4fcad0c7737c16267a00c91b0d74b666ef Mon Sep 17 00:00:00 2001
 From: Nicholas Devenish <ndevenish@gmail.com>
 Date: Fri, 17 Jan 2025 08:47:30 +0000
-Subject: [PATCH 3/3] Force rs_mapper tests to be single-threaded
+Subject: [PATCH 3/4] Force rs_mapper tests to be single-threaded
 
 ---
  tests/command_line/test_rs_mapper.py | 10 +++++++++-
