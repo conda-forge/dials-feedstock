@@ -13,6 +13,7 @@ source:
     - 0001-Skip-model_background-test.patch
     - 0002-Skip-rs_mapper-tests-on-windows.patch
     - 0003-Force-rs_mapper-tests-to-be-single-threaded.patch
+    - 0004-Numpy-fix-return-scalar-in-ellipsoid-refiner-mse-function.patch
 
 build:
   number: 1
