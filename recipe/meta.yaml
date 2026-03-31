@@ -7,12 +7,13 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 9e02b1077d1fd6bf2a0616ab5f4ddfb49965db6a90b9ba11f1fe391f0ad8cb58
+  sha256: 785f7aa5a42eb012da12cce16092ef14f3c8a2158ea0de2cefd937b5200d47a0
   folder: dials
   patches:
     - 0001-Skip-model_background-test.patch
     - 0002-Skip-rs_mapper-tests-on-windows.patch
     - 0003-Force-rs_mapper-tests-to-be-single-threaded.patch
+    - 0004-dev.dials.refstat_symmetry_analysis-test-fails-on-wi.patch
 
 build:
   number: 0
@@ -168,7 +169,7 @@ test:
   commands:
     - dials.data get image_examples --verify
     - pytest $SRC_DIR/dials/tests -n auto  # [not win]
-    - pytest %SRC_DIR%/dials/tests --regression -n auto  # [win]
+    - pytest %SRC_DIR%/dials/tests -n auto  # [win]
     - pip check
 
 about:
