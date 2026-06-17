@@ -147,6 +147,7 @@ requirements:
     - pycbf
     - pyopengl
     - python
+    - scikit-image
     - scikit-learn
     - scipy
     - tabulate
