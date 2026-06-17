@@ -1,7 +1,5 @@
-azure:
-  settings_win:
-    variables:
-      SET_PAGEFILE: 'True'
+workflow_settings:
+  pagefile_size: 8
 build_platform:
   osx_arm64: osx_64
 conda_build:
