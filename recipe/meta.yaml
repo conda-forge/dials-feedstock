@@ -16,7 +16,7 @@ source:
     - 0004-dev.dials.refstat_symmetry_analysis-test-fails-on-wi.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<311]
   osx_is_app: true
   entry_points:
