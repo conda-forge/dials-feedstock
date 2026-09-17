@@ -1,5 +1,5 @@
 {% set name = "dials" %}
-{% set version = "3.30.0" %}
+{% set version = "3.30.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 4f5ef642c220253ccca6273245cfdfa157262a86120282522165783be515202b
+  sha256: 2065b8f0f553631361241d7e46020bf67b57264935aa698a01a9b18f3ff7413d
   folder: dials
   patches:
     - 0001-Skip-model_background-test.patch
@@ -16,7 +16,7 @@ source:
     - 0004-dev.dials.refstat_symmetry_analysis-test-fails-on-wi.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<311]
   osx_is_app: true
   entry_points:
