@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/dials/dials/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 17cfc5af87c711969b11e2848b1bbea45118fc27
+  sha256: 2065b8f0f553631361241d7e46020bf67b57264935aa698a01a9b18f3ff7413d
   folder: dials
   patches:
     - 0001-Skip-model_background-test.patch
